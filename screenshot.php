@@ -1,6 +1,6 @@
 <?
 
-$path = "/Users/caseypugh";
+$path = "/Users/YOURUSERNAME";
 $users = explode("\n", shell_exec("ls {$path}/Dropbox/Minecraft\ Screenshots/ | grep ''"));
 
 for ($i = 0; $i < count($users); $i++)
