@@ -26,7 +26,7 @@ After running it through avatar.php: http://caseypugh.com/minecraft/avatar/Shame
 
 == Live screenshots (screenshot.php)
 
-You can take screenshots in Minecraft by pressing F2. It's really helpful to just show you friends what you're doing or where you are rather than typing it out (e.g. http://cl.ly/41020o0g2N3r1T0p0I43). Leveraging Dropbox, this can be made simple.
+You can take screenshots in Minecraft by pressing F2. It's really helpful to just show you friends what you're doing or where you are rather than typing it out (e.g. http://cl.ly/41020o0g2N3r1T0p0I43). Leveraging Dropbox and screenshot.php, this can be made simple.
 
  * Simply create a new Dropbox folder and Share it with your friends (e.g. "Minecraft Screenshots").
  * Inside that folder, create a new folder with the name of each Minecraft user in it
@@ -38,7 +38,8 @@ You can take screenshots in Minecraft by pressing F2. It's really helpful to jus
   mv ~/Library/Application\ Support/minecraft/screenshots ~/Library/Application\ Support/minecraft/screenshots-old
   ln -s ~/Dropbox/Minecraft\ Screenshots/Shamestamps ~/Library/Application\ Support/minecraft/screenshots
 
-All set. Now all you have to do is hit F2 in-game and it will show up on the site.
+
+To test if it worked, just have the user hit F2 in-game and you should see it appear in dropbox like this http://cl.ly/15200d140533302m1E3o. The script will automatically copy over the screenshots from the shared folder to the public folder so it can be put online easily.
 
 As a bonus, you can generate a map of your Minecraft world and use Google Maps API to view it. Check it out: https://github.com/brownan/Minecraft-Overviewer
 Here's mine: http://caseypugh.com/minecraft/map
