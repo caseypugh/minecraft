@@ -41,5 +41,7 @@ You can take screenshots in Minecraft by pressing F2. It's really helpful to jus
 
 To test if it worked, just have the user hit F2 in-game and you should see it appear in dropbox like this http://cl.ly/15200d140533302m1E3o. The script will automatically copy over the screenshots from the shared folder to the public folder so it can be put online easily.
 
+== Minecraft Google Map
+
 As a bonus, you can generate a map of your Minecraft world and use Google Maps API to view it. Check it out: https://github.com/brownan/Minecraft-Overviewer
 Here's mine: http://caseypugh.com/minecraft/map
