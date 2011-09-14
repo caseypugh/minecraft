@@ -1,13 +1,15 @@
-<?
+<?php
+
+ini_set("display_errors",FALSE);
 
 header("Content-type: image/png");
 
 $size = $_GET['size'] > 0 ? $_GET['size'] : 100;
 
-$src = @imagecreatefrompng("http://minecraft.net/skin/{$_GET['name']}.png");
+$src = imagecreatefrompng("http://minecraft.net/skin/{$_GET['name']}.png");
 
 if (!$src) {
-  $src = @imagecreatefrompng("http://www.minecraft.net/img/char.png");
+  $src = imagecreatefrompng("http://www.minecraft.net/img/char.png");
 }
 
 $dest   = imagecreatetruecolor(8, 8);
@@ -21,3 +23,5 @@ imagepng($final);
 imagedestroy($im);
 imagedestroy($dest);
 imagedestroy($final);
+
+?>
