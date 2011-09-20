@@ -1,11 +1,18 @@
 <?
 
-$ch = curl_init("http://dl.dropbox.com/u/19353/Minecraft/server.log");
+//$ch = curl_init("http://dl.dropbox.com/u/19353/Minecraft/server.log");
+
+/*
+$ch = curl_init("http://192.168.1.115:8080/server.log");
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $output = curl_exec($ch);
 curl_close($ch);
+*/
+
+//$output = file_get_contents("server.log");
+$output = file_get_contents("http://192.168.1.115:8080/server.log");
 
 $logs = explode("\n", $output);
 $users = array();
@@ -23,7 +30,8 @@ function getTimeAgo($datetime)
   $months = round($datediff / (60 * 60 * 24 * 31));
   $years =  round($datediff / (60 * 60 * 24 * 365));
 
-  //we don't want to say "ago" so we can use this for online also
+//echo "$min $hours $days $months $years ";
+
   if($datediff < 60) { // seconds
     if($datediff == 0) return "just now";
     return "$datediff second".pluralizer($datediff > 1);// . " ago";
@@ -109,14 +117,14 @@ function cmp($a, $b)
   */
   
   if ( $a['online'] ) {
-	if ( $b['online'] ) { //both online - alphabetically
+	if ( $b['online'] ) { //both online
 		return strcasecmp($a['name'],$b['name']);
-	} else { // only a is online - it comes first
+	} else {
 		return -1;
 	}
-  } else if ( $b['online'] ) { //only b is online - comes first
+  } else if ( $b['online'] ) {
 	return 1;
-  } else {// both offline - the one that was most recently on comes first
+  } else {
 	return strtotime($b['time']) - strtotime($a['time']);
   }
   
