@@ -7,7 +7,7 @@ $size = $_GET['size'] > 0 ? $_GET['size'] : 100;
 $src = @imagecreatefrompng("http://minecraft.net/skin/{$_GET['name']}.png");
 
 if (!$src) {
-  $src = @imagecreatefrompng("http://www.minecraft.net/img/char.png");
+  $src = @imagecreatefrompng("http://www.minecraft.net/images/char.png");
 }
 
 $dest   = imagecreatetruecolor(8, 8);
