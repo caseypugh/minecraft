@@ -15,7 +15,7 @@ function getTimeAgo($datetime)
   if(trim($datetime) == "")
     return false;
 
-  $datediff = strtotime(date("Y-m-d H:i:s")) - strtotime($datetime);
+  $datediff = strtotime("+4 hours") - strtotime($datetime);
 
   $min =    round($datediff / 60);
   $hours =  round($datediff / (60 * 60));
@@ -95,7 +95,7 @@ function add_user($name, $state, $time)
   $GLOBALS['users'][] = array(
     'name' => $name,
     'online' => $state,
-    'avatar' => "/minecraft_avatar.php?name={$name}", //'http://www.mcserverreview.com/avatars/minecraft_creeper_wallpaper_by_lynchmob10_09_1_-avatar.jpg'
+    'avatar' => "/minecraft/avatar.php?name={$name}", //'http://www.mcserverreview.com/avatars/minecraft_creeper_wallpaper_by_lynchmob10_09_1_-avatar.jpg'
     'time'  => $time
   );
 }

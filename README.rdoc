@@ -22,7 +22,7 @@ Just throw this file on a webserver, along with your server.log file. As a short
 This script magically pulls out the face of your Minecraft.net into a new PNG image of specified size.
 
 Here's my current skin: http://minecraft.net/skin/Shamestamps.png
-After running it through avatar.php: http://caseypugh.com/minecraft/avatar/Shamestamps?size=100
+After running it through avatar.php: http://caseypugh.com/minecraft/avatar.php?name=Shamestamps&size=100
 
 == Live screenshots (screenshot.php)
 
