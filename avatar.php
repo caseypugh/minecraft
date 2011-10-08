@@ -20,8 +20,8 @@ $bg_color = imagecolorat($src, 0, 0);
 $no_helm = true;
 
 // Check if there's any helm
-for ($i = 0; $i < 8; $i++) {
-  for ($j = 0; $j < 4; $j++) {
+for ($i = 1; $i <= 8; $i++) {
+  for ($j = 1; $j <= 4; $j++) {
     // scanning helm area
     if (imagecolorat($src, 40 + $i, 7 + $j) != $bg_color) {
       $no_helm = false;
