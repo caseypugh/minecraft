@@ -1,22 +1,38 @@
 <?PHP
-//include file and start session
-include("logger.php");
-session_start();
 
-//initialize the users
-$users = getusers();
+/**
+* Minecraft Index File
+*
+*This file can be used to show online users, how long they've been online for,
+*the last time they where online, amount of times logged in, and recetn chat
+*items. It is to be used with the minecraft.php class and avatar.php script.
+*
+*Please feel free to change this file completely to fit your site.
+*
+* @category   Minecraft
+* @package    Minecraft_Server_Script
+* @subpackage Minecraft_Index
+* @copyright  Copyright (c) Jaryth Frenette 2012, hfuller 2011, caseypugh, 2011
+* @license    Open Source - Anyone can use, modify and redistribute as wanted
+* @version    Release: 1.0
+* @link       http://jaryth.net
+*/
 
-//if chat flag is set, show chat
-if(isset($_GET['chat'])){
+//Include the Class file
+include("minecraft.php");
+//Create a new object (You can create multiple objects using this class
+//just make sure to name them each something different, and use a different log
+$minecraft = new minecraft("E:\Program Files (x86)\Minecraft\server.log");
 
-//only show the newest 30 lines of the chat log
-$total = count($GLOBALS['chat']);
-$start = count($GLOBALS['chat']) - 30;
-
-for ($i = $start; $i < $total; $i++) {
-    echo $GLOBALS['chat'][$i];   
-}
-exit();
+//if chat flag is set, show chat. This is optional
+if(isset($_GET['chat'])){  
+  //only show the newest 30 lines of the chat log
+  $total = count($minecraft->chat);
+  $start = count($minecraft->chat) - 30;  
+  for ($i = $start; $i < $total; $i++) {
+    echo $minecraft->chat[$i];   
+  }
+  exit();
 }
 
 //show HTML
@@ -27,8 +43,7 @@ exit();
 <head>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
 <title>Jaryth's Server</title>
-<link rel="stylesheet" type="text/css" href="/tsstatus/tsstatus.css" />
-<script type="text/javascript" src="/tsstatus/tsstatus.js"></script>
+
 <style type="text/css">
 html,body{margin:0;padding:0}
 body{font: 76% arial,sans-serif;text-align:center; background: #aaaaaa;}
@@ -73,19 +88,19 @@ div#extra{clear:both;width:100%}
 <b><a href="/map/">-Server Map</a></b>
 <b><a href="/port/">-Character Management</a></b>
 <h3>In Server</h3>
-<?PHP foreach ($users as $u): ?>
+<?PHP foreach ($minecraft->users as $u): ?>
   <div class="user <?PHP $u['online'] ? 'online' : 'offline' ?>">
-    <img src="<?PHP echo($u['avatar']); ?>" />
+    <a href="<?PHP echo($u['avatar']); ?>&skip"><img src="<?PHP echo($u['avatar']); ?>" /></a>
     <div class="info">
       <h1><?PHP echo($u['name']) ?></h1>
       <?PHP if (!$u['online']): ?>
-        <span>Offline. Last seen <?PHP echo(getTimeAgo($u['time'])) ?> ago.</span>
+        <span>Offline. Last seen <?PHP echo($minecraft->getTimeAgo($u['time'])) ?> ago.</span>
       <?PHP else: ?>
-        <span class="on">Online! Logged on for <?PHP echo(getTimeAgo($u['time'])) ?>.</span>
+        <span class="on">Online! Logged on for <?PHP echo($minecraft->getTimeAgo($u['time'])) ?>.</span>
       <?PHP endif ?>
       <br>
       Number of times logged on: <?PHP echo($u['logcount']) ?><br>
-      Total time online: <?PHP echo(Sec2Time($u['totaltime'])) ?> 
+      Total time online: <?PHP echo($minecraft->Sec2Time($u['totaltime'])) ?> 
     </div>
 
     <div class="clear"></div>
@@ -97,10 +112,10 @@ div#extra{clear:both;width:100%}
 <div id="navigation">
 <h3>In TeamSpeak:</h3>
 
+<div id="ts3viewer_956271" style="width:; background-color:;"> </div>
 <!--
 You can put a Teamspeak viewer, or another monitoring viewer here!
 -->
-
 </div>
 <div id="extra">
  </div>
