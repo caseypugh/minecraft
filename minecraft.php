@@ -90,7 +90,7 @@ function parseLog(){
     if (preg_match("/([0-9-]+ [0-9:]+) \[INFO\] \<([a-zA-Z0-9-_]+)\> (.*)/i", $l, $m))
       $this->online($m[2], $m[1], 0, $m[3]);
     //check for users entering the server, set them online
-    else if (preg_match("/([0-9-]+ [0-9:]+) \[INFO\] ([a-zA-Z0-9-_]+) \[.*logged in with entity/i", $l, $m))
+    else if (preg_match("/([0-9-]+ [0-9:]+) \[INFO\] ([a-zA-Z0-9-_]+) ?\[.*logged in with entity/i", $l, $m))
       $this->online($m[2], $m[1], 1);
     //Check for users leaving, set them as offline
     else if (preg_match("/([0-9-]+ [0-9:]+) \[INFO\] ([a-zA-Z0-9-_]+) lost connection/i", $l, $m))
