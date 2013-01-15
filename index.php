@@ -44,9 +44,8 @@ if(isset($_GET['chat'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <link rel="stylesheet" href="https://app.divshot.com/css/divshot-util.css">
-    <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap.css">
-    <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap-responsive.css">
-    <script src="https://app.divshot.com/js/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <style type="text/css">
 .users .user { padding: 5px; clear: both; border-bottom: 1px solid #ddd; }
 .users .user img { float: left; }
@@ -109,6 +108,6 @@ Make sure to delete the hidden part if you are
 </div>
       </div>
     </div>
-    <script src="https://app.divshot.com/js/bootstrap.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
   </body>
 </html>
