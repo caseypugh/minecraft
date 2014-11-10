@@ -37,33 +37,16 @@ if(isset($_GET['chat'])){
 
 //show HTML
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!doctype html>
 <html>
-<head>
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
-<title>Jaryth's Server</title>
-
-<style type="text/css">
-html,body{margin:0;padding:0}
-body{font: 76% arial,sans-serif;text-align:center; background: #aaaaaa;}
-p{margin:0 10px 10px}
-a{display:block;color: #981793;padding:10px}
-div#header {height:166px;line-height:80px;margin:0;
-  padding-left:10px;background-image: url('/images/header.jpg'); background-repeat:no-repeat; color: #79B30B}
-div#container{text-align:left}
-div#content p{line-height:1.4}
-div#navigation{background: #bbb;}
-div#extra{}
-div#footer{}
-div#footer p{margin:0;padding:5px 10px}
-
-div#container{width:600px;margin:0 auto}
-div#content{float:right;width:400px; }
-div#navigation{float:left;width:200px}
-div#extra{clear:both;width:100%}
-
-.server { font: bold 24px Helvetica, Arial; padding: 10px 5px; color: #7ed471; background: #333; border-bottom: 1px solid #fff; }
+  <head>
+    <title>Minecraft Stats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://app.divshot.com/css/divshot-util.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style type="text/css">
 .users .user { padding: 5px; clear: both; border-bottom: 1px solid #ddd; }
 .users .user img { float: left; }
 .users .user .info { margin-top: 1px; float: left; margin-left: 5px; }
@@ -72,23 +55,32 @@ div#extra{clear:both;width:100%}
 .users .user .info h1 { font: 20px Helvetica, Arial; color: #333; }
 .users .user .info span { color: #eee; font: normal 15px Helvetica, Arial; }
 .users .user .info span.on { color: #69FF22; font-weight:bold;}
-
-
 .users .offline .info h1 { color: #666; }
 .users .offline { background: #eee;  }
-.clear { clear: both; }
 </style>
-</head>
-<body>
-<div id="container">
-<div id="header">&nbsp;</div>
-<div id="wrapper">
-<div id="content">
-<div class="users">
-<b><a href="/map/">-Server Map</a></b>
-<b><a href="/port/">-Character Management</a></b>
-<h3>In Server</h3>
-<?PHP foreach ($minecraft->users as $u): ?>
+  </head>
+  
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Minecraft Stats</a>
+          <div class="navbar-content">
+            <ul class="nav  pull-right"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="page-header">
+        <h1>Minecraft Server Statistics</h1>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div class="well">
+            <h4>Server Users</h4>
+            <div>
+            <?PHP foreach ($minecraft->users as $u): ?>
   <div class="user <?PHP $u['online'] ? 'online' : 'offline' ?>">
     <a href="<?PHP echo($u['avatar']); ?>&skip"><img src="<?PHP echo($u['avatar']); ?>" /></a>
     <div class="info">
@@ -106,20 +98,16 @@ div#extra{clear:both;width:100%}
     <div class="clear"></div>
   </div>
 <?PHP endforeach;?>
-</div>
- </div>
-</div>
-<div id="navigation">
-<h3>In TeamSpeak:</h3>
-
-<div id="ts3viewer_956271" style="width:; background-color:;"> </div>
-<!--
+          </div>
+        </div>
+        <div class="well hidden"> 
+        <!--
 You can put a Teamspeak viewer, or another monitoring viewer here!
+Make sure to delete the hidden part if you are
 -->
 </div>
-<div id="extra">
- </div>
-<div id="footer"></div>
-</div>
-</body>
+      </div>
+    </div>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+  </body>
 </html>
