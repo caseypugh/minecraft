@@ -50,7 +50,7 @@ if(isset($_GET['cache'])){
 }
 
 //Grab the skin off of the Minecraft site
-$src = imagecreatefrompng("http://minecraft.net/skin/{$name}.png");
+$src = imagecreatefrompng("http://skins.minecraft.net/MinecraftSkins/".$name.".png");
 
 //If no path was given or no image can be found, then create from default
 if(!$src){
