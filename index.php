@@ -108,6 +108,7 @@ Make sure to delete the hidden part if you are
 </div>
       </div>
     </div>
+  </div>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
   </body>
 </html>

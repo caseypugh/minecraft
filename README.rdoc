@@ -42,6 +42,10 @@ Or use Tectonicus: http://triangularpixels.net/games/tectonicus/
 == Changes
 Changes made by Jaryth are as follows:
 
+October 1th (2015):
+  -Removed security bug
+  -Clean index.php HTML
+
 April 17th:
   -Re-coded from the ground up to be Object Oriented
   -You can now parse multiple scripts in their own objects

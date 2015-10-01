@@ -28,6 +28,9 @@ header("Content-type: image/png");
 
 //Get data from URL
 $name = $_GET['name'];
+if(strpos($name, '..') !== false){
+  exit(); // name in path with '..' in it would allow for directory traversal.
+}
 $size = $_GET['size'] > 0 ? $_GET['size'] : 100;
 
 //Check if Caching is enabled via the URL(&cache=1)(Although the =1 is not need)
