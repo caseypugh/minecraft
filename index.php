@@ -4,7 +4,7 @@
 * Minecraft Index File
 *
 *This file can be used to show online users, how long they've been online for,
-*the last time they where online, amount of times logged in, and recetn chat
+*the last time they were online, amount of times logged in, and recent chat
 *items. It is to be used with the minecraft.php class and avatar.php script.
 *
 *Please feel free to change this file completely to fit your site.
