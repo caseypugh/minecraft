@@ -243,7 +243,7 @@ function cache(){
       //If its less than cacheTime then load the data into the users array
       $this->users = unserialize($cache[1]);
     }else{
-      //If its too old, generate fresh one
+      //If it's too old, generate fresh one
       $this->parseLog();
     }
 
