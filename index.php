@@ -79,7 +79,8 @@ if(isset($_GET['chat'])){
         <div class="span12">
           <div class="well">
             <h4>Server Users</h4>
-            <div>
+          <div>
+        </div>
             <?PHP foreach ($minecraft->users as $u): ?>
   <div class="user <?PHP $u['online'] ? 'online' : 'offline' ?>">
     <a href="<?PHP echo($u['avatar']); ?>&skip"><img src="<?PHP echo($u['avatar']); ?>" /></a>
